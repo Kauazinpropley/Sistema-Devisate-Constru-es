@@ -1,60 +1,283 @@
 # Levantamento de requisitos: Sistema Devisate Construções
 **Grupo composto por Kauã Teixeira de Andrade e Marcelo Amancio**
-1. Requisitos Funcionais (RF)
-Os requisitos funcionais descrevem as operações, comportamentos e regras de negócio concretas do sistema, organizados por atores e módulos.
+```python
+ Devisate Construções — Gestão e Agendamento de Equipamentos
 
-Área Pública & Autenticação
-RF01: O sistema deve exibir na página inicial uma vitrine de equipamentos cadastrados, permitindo a busca por nome e a filtragem por categoria ou status de disponibilidade sem exigir login prévio.
+> **Documento de Levantamento de Requisitos do Sistema**  
+> *Projeto de Engenharia de Software / Sistema de Informação*
 
-RF02: O usuário deve conseguir solicitar o cadastro no sistema informando nome completo, e-mail corporativo, CPF, telefone e senha de acesso.
+---
 
-RF03: O sistema deve permitir a autenticação do usuário mediante o fornecimento de e-mail e senha cadastrados.
+## 📌 Contexto & Situação-Problema
 
-RF04: O usuário deve conseguir solicitar a recuperação de senha via e-mail informando o e-mail cadastrado.
+A **Devisate Construções** possui diversos equipamentos utilizados em obras e atividades de manutenção. O controle dessas ferramentas era realizado por meio de anotações manuais, planilhas informais e mensagens de aplicativo. Com o crescimento da empresa, surgiram diversos gargalos operacionais:
 
-Área do Usuário (Solicitante/Colaborador)
-RF05: O usuário deve conseguir visualizar e atualizar seus dados cadastrais (exceto CPF e perfil de acesso) e alterar sua senha no painel de perfil.
+* 🚨 Equipamentos emprestados sem registro formal;
+* 🔍 Dificuldade em localizar materiais e ferramentas nos galpões/obras;
+* 📅 Conflitos de agendamento e sobreposição de reservas;
+* 🛠️ Falta de histórico de manutenção preventiva e corretiva;
+* 📊 Ausência de indicadores gerenciais para tomada de decisão;
+* 👤 Falta de responsabilização e controle de devolução de itens.
 
-RF06: O usuário deve conseguir solicitar o agendamento de um ou mais equipamentos para um período específico, informando a data/hora de início, data/hora de término esperada e a obra/finalidade de uso.
+### 🎯 Pergunta Norteadora
+> *Como criar um sistema capaz de controlar equipamentos, empréstimos, manutenções e agendamentos de forma organizada e segura?*
 
-RF07: O sistema deve verificar a disponibilidade do equipamento e impedir a confirmação de agendamentos cujas datas coincidam com reservas já aprovadas ou períodos de manutenção agendados.
+Este documento apresenta o levantamento de **Requisitos Funcionais (RF)** e **Requisitos Não Funcionais (RNF)** que balizam o desenvolvimento da solução.
 
-RF08: O usuário deve conseguir acompanhar o status das suas solicitações de agendamento (Ex: Pendente, Aprovado, Recusado, Concluído) e consultar todo o seu histórico de empréstimos anteriores.
+---
 
-Área Administrativa & Operacional
-RF09: O administrador deve conseguir gerenciar os usuários do sistema (incluindo criação, edição, inativação e atribuição de perfis como Administrador, Operador de Almoxarifado e Solicitante).
+## 📋 Módulos do Sistema
 
-RF10: O operador deve conseguir cadastrar, editar e desativar categorias de equipamentos (Ex: Ferramentas Elétricas, Maquinário Pesado, Equipamentos de Proteção).
+O sistema é dividido em três grandes áreas operacionais:
 
-RF11: O operador deve conseguir cadastrar equipamentos informando nome, número de série/patrimônio, marca, modelo, categoria, estado de conservação e localização física de armazenamento (prateleira/galpão).
 
-RF12: O operador deve conseguir avaliar solicitações pendentes de agendamento, podendo aprová-las ou recusá-las com a obrigatoriedade de registrar uma justificativa em caso de recusa.
+```
 
-RF13: O operador deve conseguir registrar a entrega física de um equipamento (início do empréstimo), vinculando o responsável, o estado inicial do equipamento e a assinatura/confirmação de retirada.
+Devisate Construções
+├── 🌐 Área Pública
+│   ├── Página Inicial & Sobre a Empresa
+│   ├── Catálogo de Equipamentos
+│   └── Autenticação & Cadastro
+│
+├── 👤 Área do Usuário (Solicitante / Colaborador)
+│   ├── Perfil de Usuário
+│   ├── Solicitação de Equipamentos
+│   ├── Histórico de Empréstimos
+│   └── Histórico de Agendamentos
+│
+└── ⚙️ Área Administrativa & Operacional
+├── Dashboard Gerencial
+├── Gestão de Usuários & Permissões
+├── Gestão de Categorias
+├── Cadastro de Equipamentos
+├── Controle de Empréstimos & Devoluções
+├── Gestão de Manutenções
+└── Relatórios Gerenciais
 
-RF14: O operador deve conseguir registrar a devolução do equipamento no sistema, anotando o estado de conservação no retorno, eventuais avarias e registrando a baixa no empréstimo.
+```
 
-RF15: O operador deve conseguir cadastrar ordens de manutenção (preventiva ou corretiva) para um equipamento, alterando seu status automaticamente para "Em Manutenção" e especificando o motivo, custo estimado e data prevista de retorno.
+---
 
-RF16: O sistema deve exibir no Dashboard administrativo indicadores em tempo real, incluindo total de equipamentos por status (Disponível, Emprestado, Em Manutenção), agendamentos do dia e equipamentos com devolução em atraso.
+## ⚙️ 1. Requisitos Funcionais (RF)
 
-RF17: O administrador deve conseguir gerar relatórios exportáveis (em PDF ou CSV) contendo o histórico de utilização de equipamentos, custos de manutenção por período e taxa de atraso por colaborador/obra.
+Os **Requisitos Funcionais** descrevem o que o sistema **faz**: as ações, operações, comportamentos e regras de negócio executadas pelos atores ou pelo próprio sistema.
 
-2. Requisitos Não Funcionais (RNF)
-Os requisitos não funcionais definem os critérios de qualidade, desempenho, segurança e disponibilidade que o sistema deve garantir durante sua execução.
+### 🌐 Área Pública & Autenticação
+* **`RF01`** — **Consulta ao Catálogo:** O sistema deve exibir na página inicial uma vitrine de equipamentos cadastrados, permitindo a busca por nome e a filtragem por categoria ou status de disponibilidade sem exigir login prévio.
+* **`RF02`** — **Cadastro de Usuário:** O usuário deve conseguir solicitar o cadastro no sistema informando nome completo, e-mail corporativo, CPF, telefone e senha de acesso.
+* **`RF03`** — **Autenticação:** O sistema deve permitir a autenticação do usuário mediante o fornecimento de e-mail e senha cadastrados.
+* **`RF04`** — **Recuperação de Senha:** O usuário deve conseguir solicitar a recuperação de senha via e-mail informando o e-mail cadastrado.
 
-RNF01 (Desempenho): O sistema deve carregar as páginas e responder às requisições de consulta do catálogo e dashboard em um tempo de resposta inferior a 2 segundos sob carga normal de operação.
+### 👤 Área do Usuário (Solicitante / Colaborador)
+* **`RF05`** — **Gestão de Perfil:** O usuário deve conseguir visualizar e atualizar seus dados cadastrais (exceto CPF e perfil de acesso) e alterar sua senha no painel de perfil.
+* **`RF06`** — **Solicitação de Agendamento:** O usuário deve conseguir solicitar o agendamento de um ou mais equipamentos para um período específico, informando data/hora de início, data/hora de término esperada e a obra/finalidade de uso.
+* **`RF07`** — **Validação de Disputa de Agenda:** O sistema deve verificar a disponibilidade do equipamento e impedir a confirmação de agendamentos cujas datas coincidam com reservas já aprovadas ou períodos de manutenção agendados.
+* **`RF08`** — **Acompanhamento de Histórico:** O usuário deve conseguir acompanhar o status das suas solicitações de agendamento (*Pendente*, *Aprovado*, *Recusado*, *Concluído*) e consultar todo o seu histórico de empréstimos anteriores.
 
-RNF02 (Segurança/Criptografia): Todas as senhas dos usuários devem ser armazenadas no banco de dados com algoritmos de hash seguros (como BCrypt ou Argon2) com sal (salt), nunca em texto limpo.
+### ⚙️ Área Administrativa & Operacional
+* **`RF09`** — **Gestão de Usuários:** O administrador deve conseguir gerenciar os usuários do sistema (incluindo criação, edição, inativação e atribuição de perfis como *Administrador*, *Operador de Almoxarifado* e *Solicitante*).
+* **`RF10`** — **Gestão de Categorias:** O operador deve conseguir cadastrar, editar e desativar categorias de equipamentos (ex: *Ferramentas Elétricas*, *Maquinário Pesado*, *Equipamentos de Proteção*).
+* **`RF11`** — **Cadastro de Equipamentos:** O operador deve conseguir cadastrar equipamentos informando nome, número de série/patrimônio, marca, modelo, categoria, estado de conservação e localização física de armazenamento (prateleira/galpão).
+* **`RF12`** — **Aprovação de Agendamentos:** O operador deve conseguir avaliar solicitações pendentes de agendamento, podendo aprová-las ou recusá-las, com a obrigatoriedade de registrar uma justificativa em caso de recusa.
+* **`RF13`** — **Registo de Saída / Empréstimo:** O operador deve conseguir registrar a entrega física de um equipamento (início do empréstimo), vinculando o responsável, o estado inicial do equipamento e a confirmação de retirada.
+* **`RF14`** — **Registro de Devolução:** O operador deve conseguir registrar a devolução do equipamento no sistema, anotando o estado de conservação no retorno, eventuais avarias e dando baixa no empréstimo.
+* **`RF15`** — **Gestão de Manutenções:** O operador deve conseguir cadastrar ordens de manutenção (preventiva ou corretiva) para um equipamento, alterando seu status automaticamente para *"Em Manutenção"* e especificando o motivo, custo estimado e data prevista de retorno.
+* **`RF16`** — **Dashboard Gerencial:** O sistema deve exibir no Dashboard administrativo indicadores em tempo real, incluindo total de equipamentos por status (*Disponível*, *Emprestado*, *Em Manutenção*), agendamentos do dia e equipamentos com devolução em atraso.
+* **`RF17`** — **Geração de Relatórios:** O administrador deve conseguir gerar relatórios exportáveis (em PDF ou CSV) contendo o histórico de utilização de equipamentos, custos de manutenção por período e taxa de atraso por colaborador/obra.
 
-RNF03 (Controle de Acesso): O sistema deve aplicar autorização baseada em perfis (RBAC), bloqueando o acesso direto por URL a recursos administrativos (como exclusão de usuários ou aprovação de agendamentos) para usuários com perfil Solicitante.
+---
 
-RNF04 (Usabilidade/Responsividade): A interface do sistema deve ser totalmente responsiva, adaptando-se para uso em computadores desktop, tablets e smartphones (iOS e Android) sem perda de funcionalidade.
+## 🛡️ 2. Requisitos Não Funcionais (RNF)
 
-RNF05 (Auditabilidade): O sistema deve manter um log auditável imutável de todas as operações sensíveis (criação, alteração de status de empréstimo, alteração de usuários e exclusões), registrando a data, hora e o ID do usuário responsável pela ação.
+Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: representam critérios de qualidade, desempenho, segurança, usabilidade e restrições técnicas.
 
-RNF06 (Disponibilidade): A aplicação deve manter um índice de disponibilidade (Uptime) de no mínimo 99,5% no horário comercial (das 06h às 20h), considerando o ambiente de produção em nuvem.
+* **`RNF01`** — **Desempenho:** O sistema deve carregar as páginas e responder às requisições de consulta do catálogo e dashboard em um tempo de resposta inferior a 2 segundos sob carga normal de operação.
+* **`RNF02`** — **Segurança e Criptografia:** Todas as senhas dos usuários devem ser armazenadas no banco de dados utilizando algoritmos de hash seguros (como BCrypt ou Argon2) com sal (*salt*), nunca em texto limpo.
+* **`RNF03`** — **Controle de Acesso (RBAC):** O sistema deve aplicar autorização baseada em perfis de acesso, bloqueando o acesso direto por URL a recursos administrativos (como exclusão de usuários ou aprovação de agendamentos) para usuários com perfil *Solicitante*.
+* **`RNF04`** — **Usabilidade & Responsividade:** A interface do sistema deve ser totalmente responsiva, adaptando-se para uso em computadores desktop, tablets e smartphones (iOS e Android) sem perda de funcionalidade.
+* **`RNF05`** — **Auditabilidade & Rastreabilidade:** O sistema deve manter um log auditável imutável de todas as operações sensíveis (criação/alteração de status de empréstimo, alteração de permissões e exclusões), registrando data, hora e ID do usuário responsável.
+* **`RNF06`** — **Disponibilidade (Uptime):** A aplicação deve manter um índice de disponibilidade de no mínimo 99,5% no horário comercial (das 06h às 20h), considerando o ambiente de produção em nuvem.
+* **`RNF07`** — **Integridade de Dados:** O banco de dados deve implementar transações ACID e restrições de chave estrangeira, impedindo a exclusão física de um equipamento que possua históricos vinculados de empréstimo ou manutenção (adotando exclusão lógica/soft delete).
+* **`RNF08`** — **Usabilidade & Feedback ao Usuário:** A interface deve fornecer mensagens explicativas claras em caso de erro de validação (como formulários incorretos ou datas inválidas), destacando visualmente os campos pendentes em até 500ms após a submissão.
 
-RNF07 (Integridade dos Dados): O banco de dados deve implementar transações ACID e restrições de chave estrangeira, impedindo a exclusão física de um equipamento que possua históricos vinculados de empréstimo ou manutenção (adotando exclusão lógica).
+---
 
-RNF08 (Usabilidade/Feedback): A interface deve fornecer mensagens explicativas claras e em linguagem amigável em caso de erro de validação (como formulários incorretos ou datas inválidas), destacando visualmente os campos com pendência em até 500ms após a submissão.
+## 🗺️ Matriz de Rastreabilidade (Requisitos x Módulos)
+
+| Módulo do Sistema | Requisitos Funcionais Associados |
+| :--- | :--- |
+| **Página Inicial & Sobre** | `RF01` |
+| **Catálogo de Equipamentos** | `RF01` |
+| **Login & Perfil** | `RF02`, `RF03`, `RF04`, `RF05` |
+| **Gestão de Usuários** | `RF09` |
+| **Gestão de Categorias** | `RF10` |
+| **Gestão de Equipamentos** | `RF11` |
+| **Solicitação & Agendamentos** | `RF06`, `RF07`, `RF08`, `RF12` |
+| **Empréstimos & Devoluções** | `RF13`, `RF14` |
+| **Gestão de Manutenções** | `RF15` |
+| **Dashboard & Relatórios** | `RF16`, `RF17` |
+
+---
+
+## 💡 Guia de Defesa Oral da Classificação
+
+Se questionados durante a avaliação sobre as razões da classificação de determinado requisito:
+
+1. **Por que a validação de conflito de agenda (`RF07`) é Funcional?**
+   * *Justificativa:* É uma ação direta e regra de negócio executada pelo sistema no momento da submissão: cruzar o intervalo de datas solicitado com o banco de dados e decidir se permite ou recusa o agendamento.
+2. **Por que o controle de acesso por URL (`RNF03`) é Não Funcional?**
+   * *Justificativa:* Trata-se de uma propriedade arquitetural e de **segurança**. Ela atua como uma barreira transversal em toda a aplicação, garantindo a integridade dos acessos, e não uma ação isolada de um botão.
+3. **Por que o log de auditoria (`RNF05`) é Não Funcional?**
+   * *Justificativa:* É um requisito de **auditabilidade e governança**. O usuário não "executa" essa tela; é um serviço de infraestrutura rodando em segundo plano para manter o histórico seguro de alterações.
+"""
+
+with open("README.md", "w", encoding="utf-8") as f:
+    f.write(readme_content)
+
+print("README.md criado com sucesso!")
+
+
+```
+
+```text
+README.md criado com sucesso!
+
+
+```
+
+Seu arquivo `README.md` está pronto!
+
+
+Abaixo está o código exatamente como foi formatado para o arquivo **`README.md`**:
+
+```markdown
+# 🏗️ Devisate Construções — Gestão e Agendamento de Equipamentos
+
+> **Documento de Levantamento de Requisitos do Sistema**  
+> *Projeto de Engenharia de Software / Sistema de Informação*
+
+---
+
+## 📌 Contexto & Situação-Problema
+
+A **Devisate Construções** possui diversos equipamentos utilizados em obras e atividades de manutenção. O controle dessas ferramentas era realizado por meio de anotações manuais, planilhas informais e mensagens de aplicativo. Com o crescimento da empresa, surgiram diversos gargalos operacionais:
+
+* 🚨 Equipamentos emprestados sem registro formal;
+* 🔍 Dificuldade em localizar materiais e ferramentas nos galpões/obras;
+* 📅 Conflitos de agendamento e sobreposição de reservas;
+* 🛠️ Falta de histórico de manutenção preventiva e corretiva;
+* 📊 Ausência de indicadores gerenciais para tomada de decisão;
+* 👤 Falta de responsabilização e controle de devolução de itens.
+
+### 🎯 Pergunta Norteadora
+> *Como criar um sistema capaz de controlar equipamentos, empréstimos, manutenções e agendamentos de forma organizada e segura?*
+
+Este documento apresenta o levantamento de **Requisitos Funcionais (RF)** e **Requisitos Não Funcionais (RNF)** que balizam o desenvolvimento da solução.
+
+---
+
+## 📋 Módulos do Sistema
+
+O sistema é dividido em três grandes áreas operacionais:
+
+
+```
+
+Devisate Construções
+├── 🌐 Área Pública
+│   ├── Página Inicial & Sobre a Empresa
+│   ├── Catálogo de Equipamentos
+│   └── Autenticação & Cadastro
+│
+├── 👤 Área do Usuário (Solicitante / Colaborador)
+│   ├── Perfil de Usuário
+│   ├── Solicitação de Equipamentos
+│   ├── Histórico de Empréstimos
+│   └── Histórico de Agendamentos
+│
+└── ⚙️ Área Administrativa & Operacional
+├── Dashboard Gerencial
+├── Gestão de Usuários & Permissões
+├── Gestão de Categorias
+├── Cadastro de Equipamentos
+├── Controle de Empréstimos & Devoluções
+├── Gestão de Manutenções
+└── Relatórios Gerenciais
+
+```
+
+---
+
+## ⚙️ 1. Requisitos Funcionais (RF)
+
+Os **Requisitos Funcionais** descrevem o que o sistema **faz**: as ações, operações, comportamentos e regras de negócio executadas pelos atores ou pelo próprio sistema.
+
+### 🌐 Área Pública & Autenticação
+* **`RF01`** — **Consulta ao Catálogo:** O sistema deve exibir na página inicial uma vitrine de equipamentos cadastrados, permitindo a busca por nome e a filtragem por categoria ou status de disponibilidade sem exigir login prévio.
+* **`RF02`** — **Cadastro de Usuário:** O usuário deve conseguir solicitar o cadastro no sistema informando nome completo, e-mail corporativo, CPF, telefone e senha de acesso.
+* **`RF03`** — **Autenticação:** O sistema deve permitir a autenticação do usuário mediante o fornecimento de e-mail e senha cadastrados.
+* **`RF04`** — **Recuperação de Senha:** O usuário deve conseguir solicitar a recuperação de senha via e-mail informando o e-mail cadastrado.
+
+### 👤 Área do Usuário (Solicitante / Colaborador)
+* **`RF05`** — **Gestão de Perfil:** O usuário deve conseguir visualizar e atualizar seus dados cadastrais (exceto CPF e perfil de acesso) e alterar sua senha no painel de perfil.
+* **`RF06`** — **Solicitação de Agendamento:** O usuário deve conseguir solicitar o agendamento de um ou mais equipamentos para um período específico, informando data/hora de início, data/hora de término esperada e a obra/finalidade de uso.
+* **`RF07`** — **Validação de Disputa de Agenda:** O sistema deve verificar a disponibilidade do equipamento e impedir a confirmação de agendamentos cujas datas coincidam com reservas já aprovadas ou períodos de manutenção agendados.
+* **`RF08`** — **Acompanhamento de Histórico:** O usuário deve conseguir acompanhar o status das suas solicitações de agendamento (*Pendente*, *Aprovado*, *Recusado*, *Concluído*) e consultar todo o seu histórico de empréstimos anteriores.
+
+### ⚙️ Área Administrativa & Operacional
+* **`RF09`** — **Gestão de Usuários:** O administrador deve conseguir gerenciar os usuários do sistema (incluindo criação, edição, inativação e atribuição de perfis como *Administrador*, *Operador de Almoxarifado* e *Solicitante*).
+* **`RF10`** — **Gestão de Categorias:** O operador deve conseguir cadastrar, editar e desativar categorias de equipamentos (ex: *Ferramentas Elétricas*, *Maquinário Pesado*, *Equipamentos de Proteção*).
+* **`RF11`** — **Cadastro de Equipamentos:** O operador deve conseguir cadastrar equipamentos informando nome, número de série/patrimônio, marca, modelo, categoria, estado de conservação e localização física de armazenamento (prateleira/galpão).
+* **`RF12`** — **Aprovação de Agendamentos:** O operador deve conseguir avaliar solicitações pendentes de agendamento, podendo aprová-las ou recusá-las, com a obrigatoriedade de registrar uma justificativa em caso de recusa.
+* **`RF13`** — **Registro de Saída / Empréstimo:** O operador deve conseguir registrar a entrega física de um equipamento (início do empréstimo), vinculando o responsável, o estado inicial do equipamento e a confirmação de retirada.
+* **`RF14`** — **Registro de Devolução:** O operador deve conseguir registrar a devolução do equipamento no sistema, anotando o estado de conservação no retorno, eventuais avarias e dando baixa no empréstimo.
+* **`RF15`** — **Gestão de Manutenções:** O operador deve conseguir cadastrar ordens de manutenção (preventiva ou corretiva) para um equipamento, alterando seu status automaticamente para *"Em Manutenção"* e especificando o motivo, custo estimado e data prevista de retorno.
+* **`RF16`** — **Dashboard Gerencial:** O sistema deve exibir no Dashboard administrativo indicadores em tempo real, incluindo total de equipamentos por status (*Disponível*, *Emprestado*, *Em Manutenção*), agendamentos do dia e equipamentos com devolução em atraso.
+* **`RF17`** — **Geração de Relatórios:** O administrador deve conseguir gerar relatórios exportáveis (em PDF ou CSV) contendo o histórico de utilização de equipamentos, custos de manutenção por período e taxa de atraso por colaborador/obra.
+
+---
+
+## 🛡️ 2. Requisitos Não Funcionais (RNF)
+
+Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: representam critérios de qualidade, desempenho, segurança, usabilidade e restrições técnicas.
+
+* **`RNF01`** — **Desempenho:** O sistema deve carregar as páginas e responder às requisições de consulta do catálogo e dashboard em um tempo de resposta inferior a 2 segundos sob carga normal de operação.
+* **`RNF02`** — **Segurança e Criptografia:** Todas as senhas dos usuários devem ser armazenadas no banco de dados utilizando algoritmos de hash seguros (como BCrypt ou Argon2) com sal (*salt*), nunca em texto limpo.
+* **`RNF03`** — **Controle de Acesso (RBAC):** O sistema deve aplicar autorização baseada em perfis de acesso, bloqueando o acesso direto por URL a recursos administrativos (como exclusão de usuários ou aprovação de agendamentos) para usuários com perfil *Solicitante*.
+* **`RNF04`** — **Usabilidade & Responsividade:** A interface do sistema deve ser totalmente responsiva, adaptando-se para uso em computadores desktop, tablets e smartphones (iOS e Android) sem perda de funcionalidade.
+* **`RNF05`** — **Auditabilidade & Rastreabilidade:** O sistema deve manter um log auditável imutável de todas as operações sensíveis (criação/alteração de status de empréstimo, alteração de permissões e exclusões), registrando data, hora e ID do usuário responsável.
+* **`RNF06`** — **Disponibilidade (Uptime):** A aplicação deve manter um índice de disponibilidade de no mínimo 99,5% no horário comercial (das 06h às 20h), considerando o ambiente de produção em nuvem.
+* **`RNF07`** — **Integridade de Dados:** O banco de dados deve implementar transações ACID e restrições de chave estrangeira, impedindo a exclusão física de um equipamento que possua históricos vinculados de empréstimo ou manutenção (adotando exclusão lógica/soft delete).
+* **`RNF08`** — **Usabilidade & Feedback ao Usuário:** A interface deve fornecer mensagens explicativas claras em caso de erro de validação (como formulários incorretos ou datas inválidas), destacando visualmente os campos pendentes em até 500ms após a submissão.
+
+---
+
+## 🗺️ Matriz de Rastreabilidade (Requisitos x Módulos)
+
+| Módulo do Sistema | Requisitos Funcionais Associados |
+| :--- | :--- |
+| **Página Inicial & Sobre** | `RF01` |
+| **Catálogo de Equipamentos** | `RF01` |
+| **Login & Perfil** | `RF02`, `RF03`, `RF04`, `RF05` |
+| **Gestão de Usuários** | `RF09` |
+| **Gestão de Categorias** | `RF10` |
+| **Gestão de Equipamentos** | `RF11` |
+| **Solicitação & Agendamentos** | `RF06`, `RF07`, `RF08`, `RF12` |
+| **Empréstimos & Devoluções** | `RF13`, `RF14` |
+| **Gestão de Manutenções** | `RF15` |
+| **Dashboard & Relatórios** | `RF16`, `RF17` |
+
+---
+
+## 💡 Guia de Defesa Oral da Classificação
+
+Se questionados durante a avaliação sobre as razões da classificação de determinado requisito:
+
+1. **Por que a validação de conflito de agenda (`RF07`) é Funcional?**
+   * *Justificativa:* É uma ação direta e regra de negócio executada pelo sistema no momento da submissão: cruzar o intervalo de datas solicitado com o banco de dados e decidir se permite ou recusa o agendamento.
+2. **Por que o controle de acesso por URL (`RNF03`) é Não Funcional?**
+   * *Justificativa:* Trata-se de uma propriedade arquitetural e de **segurança**. Ela atua como uma barreira transversal em toda a aplicação, garantindo a integridade dos acessos, e não uma ação isolada de um botão.
+3. **Por que o log de auditoria (`RNF05`) é Não Funcional?**
+   * *Justificativa:* É um requisito de **auditabilidade e governança**. O usuário não "executa" essa tela; é um serviço de infraestrutura rodando em segundo plano para manter o histórico seguro de alterações.
+
+```
