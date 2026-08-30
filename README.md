@@ -7,6 +7,8 @@
 
 Os **Requisitos Funcionais** descrevem o que o sistema **faz**: as ações, operações, comportamentos e regras de negócio executadas pelos atores ou pelo próprio sistema.
 
+
+
 ###  Área Pública & Autenticação
 * **`RF01`** — **Consulta ao Catálogo:** O sistema deve exibir na página inicial uma vitrine de equipamentos cadastrados, permitindo a busca por nome e a filtragem por categoria ou status de disponibilidade sem exigir login prévio.
 * **`RF02`** — **Cadastro de Usuário:** O usuário deve conseguir solicitar o cadastro no sistema informando nome completo, e-mail corporativo, CPF, telefone e senha de acesso.
@@ -18,6 +20,8 @@ Os **Requisitos Funcionais** descrevem o que o sistema **faz**: as ações, oper
 * **`RF06`** — **Solicitação de Agendamento:** O usuário deve conseguir solicitar o agendamento de um ou mais equipamentos para um período específico, informando data/hora de início, data/hora de término esperada e a obra/finalidade de uso.
 * **`RF07`** — **Validação de Disputa de Agenda:** O sistema deve verificar a disponibilidade do equipamento e impedir a confirmação de agendamentos cujas datas coincidam com reservas já aprovadas ou períodos de manutenção agendados.
 * **`RF08`** — **Acompanhamento de Histórico:** O usuário deve conseguir acompanhar o status das suas solicitações de agendamento (*Pendente*, *Aprovado*, *Recusado*, *Concluído*) e consultar todo o seu histórico de empréstimos anteriores.
+
+
 
 ###  Área Administrativa & Operacional
 * **`RF09`** — **Gestão de Usuários:** O administrador deve conseguir gerenciar os usuários do sistema (incluindo criação, edição, inativação e atribuição de perfis como *Administrador*, *Operador de Almoxarifado* e *Solicitante*).
