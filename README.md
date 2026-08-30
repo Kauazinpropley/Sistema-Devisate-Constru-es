@@ -52,10 +52,10 @@ Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: repr
 
 | Módulo do Sistema | Requisitos Funcionais Associados |
 | :---: | :---: |
-| **Página Inicial & Sobre** | `RF01` |
-| **Catálogo de Equipamentos** | `RF01` |
-| **Login & Perfil** | `RF02`, `RF03`, `RF04`, `RF05` |
-| **Gestão de Usuários** | `RF09` |
+| **Página Inicial & Sobre** | `RF1` |
+| **Catálogo de Equipamentos** | `RF1` |
+| **Login & Perfil** | `RF2`, `RF3`, `RF4`, `RF5` |
+| **Gestão de Usuários** | `RF9` |
 | **Gestão de Categorias** | `RF10` |
 | **Gestão de Equipamentos** | `RF11` |
 | **Solicitação & Agendamentos** | `RF06`, `RF07`, `RF08`, `RF12` |
