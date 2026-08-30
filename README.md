@@ -48,7 +48,7 @@ Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: repr
 
 
 
-## Matriz de Rastreabilidade(Requisitos x Módulos)
+## Módulos X Requisitos
 
 | Módulo do Sistema | Requisitos Funcionais Associados |
 | :---: | :---: |
