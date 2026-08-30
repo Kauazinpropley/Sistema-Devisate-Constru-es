@@ -50,7 +50,7 @@ Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: repr
 ## Matriz de Rastreabilidade (Requisitos x Módulos)
 
 | Módulo do Sistema | Requisitos Funcionais Associados |
-| :--- | :--- |
+
 | **Página Inicial & Sobre** | `RF01` |
 | **Catálogo de Equipamentos** | `RF01` |
 | **Login & Perfil** | `RF02`, `RF03`, `RF04`, `RF05` |
