@@ -10,18 +10,18 @@ Os **Requisitos Funcionais** descrevem o que o sistema **faz**: as ações, oper
 
 
 
-* **`RF01`** — **Consulta ao Catálogo:** O sistema deve exibir na página inicial uma vitrine de equipamentos cadastrados, permitindo a busca por nome e a filtragem por categoria ou status de disponibilidade sem exigir login prévio.
-* **`RF02`** — **Cadastro de Usuário:** O usuário deve conseguir solicitar o cadastro no sistema informando nome completo, e-mail corporativo, CPF, telefone e senha de acesso.
-* **`RF03`** — **Autenticação:** O sistema deve permitir a autenticação do usuário mediante o fornecimento de e-mail e senha cadastrados.
-* **`RF04`** — **Recuperação de Senha:** O usuário deve conseguir solicitar a recuperação de senha via e-mail informando o e-mail cadastrado.
-* **`RF05`** — **Gestão de Perfil:** O usuário deve conseguir visualizar e atualizar seus dados cadastrais (exceto CPF e perfil de acesso) e alterar sua senha no painel de perfil.
-* **`RF06`** — **Solicitação de Agendamento:** O usuário deve conseguir solicitar o agendamento de um ou mais equipamentos para um período específico, informando data/hora de início, data/hora de término esperada e a obra/finalidade de uso.
-* **`RF07`** — **Validação de Disputa de Agenda:** O sistema deve verificar a disponibilidade do equipamento e impedir a confirmação de agendamentos cujas datas coincidam com reservas já aprovadas ou períodos de manutenção agendados.
-* **`RF08`** — **Acompanhamento de Histórico:** O usuário deve conseguir acompanhar o status das suas solicitações de agendamento (*Pendente*, *Aprovado*, *Recusado*, *Concluído*) e consultar todo o seu histórico de empréstimos anteriores.
+* **`RF1`** — **Consulta ao Catálogo:** O sistema deve exibir na página inicial uma vitrine de equipamentos cadastrados, permitindo a busca por nome e a filtragem por categoria ou status de disponibilidade sem exigir login prévio.
+* **`RF2`** — **Cadastro de Usuário:** O usuário deve conseguir solicitar o cadastro no sistema informando nome completo, e-mail corporativo, CPF, telefone e senha de acesso.
+* **`RF3`** — **Autenticação:** O sistema deve permitir a autenticação do usuário mediante o fornecimento de e-mail e senha cadastrados.
+* **`RF4`** — **Recuperação de Senha:** O usuário deve conseguir solicitar a recuperação de senha via e-mail informando o e-mail cadastrado.
+* **`RF5`** — **Gestão de Perfil:** O usuário deve conseguir visualizar e atualizar seus dados cadastrais (exceto CPF e perfil de acesso) e alterar sua senha no painel de perfil.
+* **`RF6`** — **Solicitação de Agendamento:** O usuário deve conseguir solicitar o agendamento de um ou mais equipamentos para um período específico, informando data/hora de início, data/hora de término esperada e a obra/finalidade de uso.
+* **`RF7`** — **Validação de Disputa de Agenda:** O sistema deve verificar a disponibilidade do equipamento e impedir a confirmação de agendamentos cujas datas coincidam com reservas já aprovadas ou períodos de manutenção agendados.
+* **`RF8`** — **Acompanhamento de Histórico:** O usuário deve conseguir acompanhar o status das suas solicitações de agendamento (*Pendente*, *Aprovado*, *Recusado*, *Concluído*) e consultar todo o seu histórico de empréstimos anteriores.
 
 
 
-* **`RF09`** — **Gestão de Usuários:** O administrador deve conseguir gerenciar os usuários do sistema (incluindo criação, edição, inativação e atribuição de perfis como *Administrador*, *Operador de Almoxarifado* e *Solicitante*).
+* **`RF9`** — **Gestão de Usuários:** O administrador deve conseguir gerenciar os usuários do sistema (incluindo criação, edição, inativação e atribuição de perfis como *Administrador*, *Operador de Almoxarifado* e *Solicitante*).
 * **`RF10`** — **Gestão de Categorias:** O operador deve conseguir cadastrar, editar e desativar categorias de equipamentos (ex: *Ferramentas Elétricas*, *Maquinário Pesado*, *Equipamentos de Proteção*).
 * **`RF11`** — **Cadastro de Equipamentos:** O operador deve conseguir cadastrar equipamentos informando nome, número de série/patrimônio, marca, modelo, categoria, estado de conservação e localização física de armazenamento (prateleira/galpão).
 * **`RF12`** — **Aprovação de Agendamentos:** O operador deve conseguir avaliar solicitações pendentes de agendamento, podendo aprová-las ou recusá-las, com a obrigatoriedade de registrar uma justificativa em caso de recusa.
