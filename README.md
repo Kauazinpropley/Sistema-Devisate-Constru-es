@@ -45,7 +45,7 @@ Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: repr
 * **`RNF07`** — **Integridade de Dados:** O banco de dados deve implementar transações ACID e restrições de chave estrangeira, impedindo a exclusão física de um equipamento que possua históricos vinculados de empréstimo ou manutenção (adotando exclusão lógica/soft delete).
 * **`RNF08`** — **Usabilidade & Feedback ao Usuário:** A interface deve fornecer mensagens explicativas claras em caso de erro de validação (como formulários incorretos ou datas inválidas), destacando visualmente os campos pendentes em até 500ms após a submissão.
 
----
+--
 
 ## Matriz de Rastreabilidade (Requisitos x Módulos)
 
@@ -62,4 +62,4 @@ Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: repr
 | **Gestão de Manutenções** | `RF15` |
 | **Dashboard & Relatórios** | `RF16`, `RF17` |
 
----
+--
