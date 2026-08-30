@@ -37,14 +37,14 @@ Os **Requisitos Funcionais** descrevem o que o sistema **faz**: as ações, oper
 
 Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: representam critérios de qualidade, desempenho, segurança, usabilidade e restrições técnicas.
 
-* **`RNF01`** — **Desempenho:** O sistema deve carregar as páginas e responder às requisições de consulta do catálogo e dashboard em um tempo de resposta inferior a 2 segundos sob carga normal de operação.
-* **`RNF02`** — **Segurança e Criptografia:** Todas as senhas dos usuários devem ser armazenadas no banco de dados utilizando algoritmos de hash seguros (como BCrypt ou Argon2) com sal (*salt*), nunca em texto limpo.
-* **`RNF03`** — **Controle de Acesso (RBAC):** O sistema deve aplicar autorização baseada em perfis de acesso, bloqueando o acesso direto por URL a recursos administrativos (como exclusão de usuários ou aprovação de agendamentos) para usuários com perfil *Solicitante*.
-* **`RNF04`** — **Usabilidade & Responsividade:** A interface do sistema deve ser totalmente responsiva, adaptando-se para uso em computadores desktop, tablets e smartphones (iOS e Android) sem perda de funcionalidade.
-* **`RNF05`** — **Auditabilidade & Rastreabilidade:** O sistema deve manter um log auditável imutável de todas as operações sensíveis (criação/alteração de status de empréstimo, alteração de permissões e exclusões), registrando data, hora e ID do usuário responsável.
-* **`RNF06`** — **Disponibilidade (Uptime):** A aplicação deve manter um índice de disponibilidade de no mínimo 99,5% no horário comercial (das 06h às 20h), considerando o ambiente de produção em nuvem.
-* **`RNF07`** — **Integridade de Dados:** O banco de dados deve implementar transações ACID e restrições de chave estrangeira, impedindo a exclusão física de um equipamento que possua históricos vinculados de empréstimo ou manutenção (adotando exclusão lógica/soft delete).
-* **`RNF08`** — **Usabilidade & Feedback ao Usuário:** A interface deve fornecer mensagens explicativas claras em caso de erro de validação (como formulários incorretos ou datas inválidas), destacando visualmente os campos pendentes em até 500ms após a submissão.
+* **`RNF1`** — **Desempenho:** O sistema deve carregar as páginas e responder às requisições de consulta do catálogo e dashboard em um tempo de resposta inferior a 2 segundos sob carga normal de operação.
+* **`RNF2`** — **Segurança e Criptografia:** Todas as senhas dos usuários devem ser armazenadas no banco de dados utilizando algoritmos de hash seguros (como BCrypt ou Argon2) com sal (*salt*), nunca em texto limpo.
+* **`RNF3`** — **Controle de Acesso (RBAC):** O sistema deve aplicar autorização baseada em perfis de acesso, bloqueando o acesso direto por URL a recursos administrativos (como exclusão de usuários ou aprovação de agendamentos) para usuários com perfil *Solicitante*.
+* **`RNF4`** — **Usabilidade & Responsividade:** A interface do sistema deve ser totalmente responsiva, adaptando-se para uso em computadores desktop, tablets e smartphones (iOS e Android) sem perda de funcionalidade.
+* **`RNF5`** — **Auditabilidade & Rastreabilidade:** O sistema deve manter um log auditável imutável de todas as operações sensíveis (criação/alteração de status de empréstimo, alteração de permissões e exclusões), registrando data, hora e ID do usuário responsável.
+* **`RNF6`** — **Disponibilidade (Uptime):** A aplicação deve manter um índice de disponibilidade de no mínimo 99,5% no horário comercial (das 06h às 20h), considerando o ambiente de produção em nuvem.
+* **`RNF7`** — **Integridade de Dados:** O banco de dados deve implementar transações ACID e restrições de chave estrangeira, impedindo a exclusão física de um equipamento que possua históricos vinculados de empréstimo ou manutenção (adotando exclusão lógica/soft delete).
+* **`RNF8`** — **Usabilidade & Feedback ao Usuário:** A interface deve fornecer mensagens explicativas claras em caso de erro de validação (como formulários incorretos ou datas inválidas), destacando visualmente os campos pendentes em até 500ms após a submissão.
 
 
 
