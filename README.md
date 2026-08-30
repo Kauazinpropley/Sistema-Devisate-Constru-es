@@ -1,7 +1,7 @@
 # Levantamento de requisitos: Sistema Devisate Construções
 **Grupo composto por Kauã Teixeira de Andrade e Marcelo Amancio**
 
----
+
 
 ## 1. Requisitos Funcionais (RF)
 
@@ -30,7 +30,7 @@ Os **Requisitos Funcionais** descrevem o que o sistema **faz**: as ações, oper
 * **`RF16`** — **Dashboard Gerencial:** O sistema deve exibir no Dashboard administrativo indicadores em tempo real, incluindo total de equipamentos por status (*Disponível*, *Emprestado*, *Em Manutenção*), agendamentos do dia e equipamentos com devolução em atraso.
 * **`RF17`** — **Geração de Relatórios:** O administrador deve conseguir gerar relatórios exportáveis (em PDF ou CSV) contendo o histórico de utilização de equipamentos, custos de manutenção por período e taxa de atraso por colaborador/obra.
 
----
+
 
 ## 2. Requisitos Não Funcionais (RNF)
 
@@ -45,7 +45,7 @@ Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: repr
 * **`RNF07`** — **Integridade de Dados:** O banco de dados deve implementar transações ACID e restrições de chave estrangeira, impedindo a exclusão física de um equipamento que possua históricos vinculados de empréstimo ou manutenção (adotando exclusão lógica/soft delete).
 * **`RNF08`** — **Usabilidade & Feedback ao Usuário:** A interface deve fornecer mensagens explicativas claras em caso de erro de validação (como formulários incorretos ou datas inválidas), destacando visualmente os campos pendentes em até 500ms após a submissão.
 
---
+
 
 ## Matriz de Rastreabilidade (Requisitos x Módulos)
 
@@ -62,4 +62,3 @@ Os **Requisitos Não Funcionais** descrevem **como** o sistema se comporta: repr
 | **Gestão de Manutenções** | `RF15` |
 | **Dashboard & Relatórios** | `RF16`, `RF17` |
 
---
